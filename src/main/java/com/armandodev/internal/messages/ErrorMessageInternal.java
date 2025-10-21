@@ -1,0 +1,173 @@
+package com.armandodev.internal.messages;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import javax.swing.AbstractAction;
+import javax.swing.ActionMap;
+import javax.swing.InputMap;
+import javax.swing.JComponent;
+import javax.swing.KeyStroke;
+import org.apache.commons.lang.StringUtils;
+
+public class ErrorMessageInternal extends javax.swing.JDialog {
+    
+    public ErrorMessageInternal(java.awt.Frame parent, boolean modal, String titulo, String subTitulo, String mensagem) {
+        super(parent, modal);
+        initComponents();
+        jLabelTitulo.setText(titulo);
+        jLabelSubTitulo.setText(subTitulo);
+        JTextAreaMensagem.setText(StringUtils.isNotBlank(mensagem) ? mensagem : "Ocorreu um erro no sistema!");
+        this.defineTeclasAtalho();
+    }
+    
+    private void defineTeclasAtalho() {
+
+        InputMap iMap = this.getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
+        iMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "confirmar"); 
+
+        ActionMap aMap = this.getRootPane().getActionMap();
+        aMap.put("confirmar", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                rSButtonFormaConfirmarActionPerformed(e);
+            }
+        });    
+
+    } 
+    
+    public static void main(String args[]) {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                ErrorMessageInternal dialog = new ErrorMessageInternal(new javax.swing.JFrame(), true, null, null, null);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
+    }
+    
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jPanel1 = new javax.swing.JPanel();
+        rSLabelImage1 = new rojeru_san.rslabel.RSLabelImage();
+        jLabelSubTitulo = new javax.swing.JLabel();
+        jLabelTitulo = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        JTextAreaMensagem = new javax.swing.JTextArea();
+        rSButtonFormaConfirmar = new rojeru_san.rsbutton.RSButtonForma();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Acerto de títulos");
+        setUndecorated(true);
+        setResizable(false);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        rSLabelImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/messages/Icone_error.png"))); // NOI18N
+
+        jLabelSubTitulo.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelSubTitulo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelSubTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelSubTitulo.setText("SubTítulo");
+
+        jLabelTitulo.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelTitulo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTitulo.setText("Título");
+
+        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setBorder(null);
+        jScrollPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        JTextAreaMensagem.setEditable(false);
+        JTextAreaMensagem.setColumns(20);
+        JTextAreaMensagem.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        JTextAreaMensagem.setForeground(new java.awt.Color(102, 102, 102));
+        JTextAreaMensagem.setLineWrap(true);
+        JTextAreaMensagem.setRows(1);
+        JTextAreaMensagem.setText("Mensagem");
+        JTextAreaMensagem.setToolTipText("");
+        JTextAreaMensagem.setBorder(null);
+        jScrollPane1.setViewportView(JTextAreaMensagem);
+
+        rSButtonFormaConfirmar.setBackground(new java.awt.Color(0, 168, 84));
+        rSButtonFormaConfirmar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        rSButtonFormaConfirmar.setText("OK");
+        rSButtonFormaConfirmar.setFont(new java.awt.Font("Roboto Bold", 1, 18)); // NOI18N
+        rSButtonFormaConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonFormaConfirmarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelTitulo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabelSubTitulo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jScrollPane1)
+                .addGap(10, 10, 10))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 147, Short.MAX_VALUE)
+                .addComponent(rSButtonFormaConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(146, 146, 146))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(rSLabelImage1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(144, 144, 144))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addComponent(rSLabelImage1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabelSubTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(rSButtonFormaConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        pack();
+        setLocationRelativeTo(null);
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void rSButtonFormaConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonFormaConfirmarActionPerformed
+        dispose();
+    }//GEN-LAST:event_rSButtonFormaConfirmarActionPerformed
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JTextArea JTextAreaMensagem;
+    private javax.swing.JLabel jLabelSubTitulo;
+    private javax.swing.JLabel jLabelTitulo;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private rojeru_san.rsbutton.RSButtonForma rSButtonFormaConfirmar;
+    private rojeru_san.rslabel.RSLabelImage rSLabelImage1;
+    // End of variables declaration//GEN-END:variables
+ 
+}
