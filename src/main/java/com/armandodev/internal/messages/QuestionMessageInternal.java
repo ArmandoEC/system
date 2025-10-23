@@ -102,6 +102,7 @@ public class QuestionMessageInternal extends javax.swing.JDialog {
         rSButtonFormaConfirmar.setBackground(new java.awt.Color(0, 168, 84));
         rSButtonFormaConfirmar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         rSButtonFormaConfirmar.setText("SIM");
+        rSButtonFormaConfirmar.setColorHover(new java.awt.Color(0, 168, 84));
         rSButtonFormaConfirmar.setFont(new java.awt.Font("Roboto Bold", 1, 18)); // NOI18N
         rSButtonFormaConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,6 +113,7 @@ public class QuestionMessageInternal extends javax.swing.JDialog {
         rSButtonFormaDeclinar.setBackground(new java.awt.Color(255, 51, 51));
         rSButtonFormaDeclinar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         rSButtonFormaDeclinar.setText("NÃO");
+        rSButtonFormaDeclinar.setColorHover(new java.awt.Color(255, 117, 117));
         rSButtonFormaDeclinar.setFont(new java.awt.Font("Roboto Bold", 1, 18)); // NOI18N
         rSButtonFormaDeclinar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

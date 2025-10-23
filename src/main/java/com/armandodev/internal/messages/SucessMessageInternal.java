@@ -91,6 +91,7 @@ public class SucessMessageInternal extends javax.swing.JDialog {
         rSButtonFormaConfirmar.setBackground(new java.awt.Color(0, 168, 84));
         rSButtonFormaConfirmar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         rSButtonFormaConfirmar.setText("OK");
+        rSButtonFormaConfirmar.setColorHover(new java.awt.Color(0, 239, 119));
         rSButtonFormaConfirmar.setFont(new java.awt.Font("Roboto Bold", 1, 18)); // NOI18N
         rSButtonFormaConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

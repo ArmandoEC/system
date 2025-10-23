@@ -153,6 +153,9 @@
               </Border>
             </Property>
             <Property name="text" type="java.lang.String" value="OK"/>
+            <Property name="colorHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="77" green="ef" red="0" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Roboto Bold" size="18" style="1"/>
             </Property>

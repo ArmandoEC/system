@@ -140,7 +140,7 @@ public class MenuPrincipalSystem extends javax.swing.JFrame {
         
         switch(node) {
             case "10 - Participantes":
-                ParticipantesView view = new ParticipantesView();
+                ParticipanteView view = new ParticipanteView();
                 view.setVisible(true);
             break;
         }

@@ -22,6 +22,9 @@ public class TesteView extends javax.swing.JFrame {
         rSButtonForma4 = new rojeru_san.rsbutton.RSButtonForma();
         rSButtonForma5 = new rojeru_san.rsbutton.RSButtonForma();
         rSButtonForma6 = new rojeru_san.rsbutton.RSButtonForma();
+        rSButtonForma7 = new rojeru_san.rsbutton.RSButtonForma();
+        rSButtonForma8 = new rojeru_san.rsbutton.RSButtonForma();
+        rSButtonForma9 = new rojeru_san.rsbutton.RSButtonForma();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Modelo View");
@@ -57,11 +60,13 @@ public class TesteView extends javax.swing.JFrame {
         rSButtonForma1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         rSButtonForma1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icone_mais.png"))); // NOI18N
         rSButtonForma1.setText("Novo");
+        rSButtonForma1.setColorHover(new java.awt.Color(0, 239, 119));
 
         rSButtonForma2.setBackground(new java.awt.Color(0, 168, 84));
         rSButtonForma2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         rSButtonForma2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icone_confirmar.png"))); // NOI18N
         rSButtonForma2.setText("Salvar");
+        rSButtonForma2.setColorHover(new java.awt.Color(0, 239, 119));
 
         textField1.setForeground(new java.awt.Color(0, 0, 0));
         textField1.setPlaceholder("Nome...");
@@ -84,17 +89,37 @@ public class TesteView extends javax.swing.JFrame {
         rSButtonForma4.setBackground(new java.awt.Color(0, 168, 84));
         rSButtonForma4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         rSButtonForma4.setText("OK");
+        rSButtonForma4.setColorHover(new java.awt.Color(0, 239, 119));
         rSButtonForma4.setFont(new java.awt.Font("Roboto Bold", 1, 18)); // NOI18N
 
         rSButtonForma5.setBackground(new java.awt.Color(0, 168, 84));
         rSButtonForma5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         rSButtonForma5.setText("SIM");
+        rSButtonForma5.setColorHover(new java.awt.Color(0, 239, 119));
         rSButtonForma5.setFont(new java.awt.Font("Roboto Bold", 1, 18)); // NOI18N
 
         rSButtonForma6.setBackground(new java.awt.Color(255, 51, 51));
         rSButtonForma6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         rSButtonForma6.setText("NÃO");
+        rSButtonForma6.setColorHover(new java.awt.Color(255, 117, 117));
         rSButtonForma6.setFont(new java.awt.Font("Roboto Bold", 1, 18)); // NOI18N
+
+        rSButtonForma7.setBackground(new java.awt.Color(0, 153, 153));
+        rSButtonForma7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        rSButtonForma7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icone_alterar.png"))); // NOI18N
+        rSButtonForma7.setText("Alterar");
+        rSButtonForma7.setColorHover(new java.awt.Color(0, 219, 219));
+
+        rSButtonForma8.setBackground(new java.awt.Color(204, 204, 0));
+        rSButtonForma8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        rSButtonForma8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icone_filtro.png"))); // NOI18N
+        rSButtonForma8.setColorHover(new java.awt.Color(239, 239, 0));
+
+        rSButtonForma9.setBackground(new java.awt.Color(4, 123, 174));
+        rSButtonForma9.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        rSButtonForma9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icone_buscar.png"))); // NOI18N
+        rSButtonForma9.setText("Buscar");
+        rSButtonForma9.setColorHover(new java.awt.Color(45, 188, 250));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -113,7 +138,13 @@ public class TesteView extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(rSButtonForma2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rSButtonForma3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(rSButtonForma3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(rSButtonForma7, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(rSButtonForma8, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(rSButtonForma9, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(textField1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(rSButtonForma4, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -121,17 +152,22 @@ public class TesteView extends javax.swing.JFrame {
                         .addComponent(rSButtonForma5, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(rSButtonForma6, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(321, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rSButtonForma1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rSButtonForma2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rSButtonForma3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(rSButtonForma1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(rSButtonForma2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(rSButtonForma3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(rSButtonForma7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(rSButtonForma8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(rSButtonForma9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldNumNota, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -182,6 +218,9 @@ public class TesteView extends javax.swing.JFrame {
     private rojeru_san.rsbutton.RSButtonForma rSButtonForma4;
     private rojeru_san.rsbutton.RSButtonForma rSButtonForma5;
     private rojeru_san.rsbutton.RSButtonForma rSButtonForma6;
+    private rojeru_san.rsbutton.RSButtonForma rSButtonForma7;
+    private rojeru_san.rsbutton.RSButtonForma rSButtonForma8;
+    private rojeru_san.rsbutton.RSButtonForma rSButtonForma9;
     private necesario.TextField textField1;
     // End of variables declaration//GEN-END:variables
     

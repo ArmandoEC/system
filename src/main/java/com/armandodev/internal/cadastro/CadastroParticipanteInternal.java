@@ -2,8 +2,9 @@ package com.armandodev.internal.cadastro;
 
 import com.armandodev.entity.ParticipanteEntity;
 import com.armandodev.enumerator.RegexDocument;
+import com.armandodev.exception.ErrorException;
 import com.armandodev.internal.messages.LoadingMessageInternal;
-import com.armandodev.negocio.ParticipantesBO;
+import com.armandodev.negocio.ParticipanteBO;
 import com.armandodev.util.MessagesUtil;
 import com.armandodev.util.document.GenericRegexTextDocument;
 import java.awt.event.ActionEvent;
@@ -16,21 +17,22 @@ import javax.swing.KeyStroke;
 import javax.swing.SwingWorker;
 import org.apache.commons.lang.StringUtils;
 
-public class CadastroParticipantesInternal extends javax.swing.JDialog {
+public class CadastroParticipanteInternal extends javax.swing.JDialog {
     
     //VARIAVEIS
+    private boolean atualizarConsulta;
     private ParticipanteEntity participante;
     
     //NEGOCIO
-    private ParticipantesBO participantesBO;
+    private ParticipanteBO participantesBO;
     
-    public CadastroParticipantesInternal(java.awt.Frame parent, boolean modal) {
+    public CadastroParticipanteInternal(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         initPadrao();                    
     }
     
-    public CadastroParticipantesInternal(java.awt.Frame parent, boolean modal, ParticipanteEntity participante) {
+    public CadastroParticipanteInternal(java.awt.Frame parent, boolean modal, ParticipanteEntity participante) {
         super(parent, modal);
         initComponents();
         this.participante = participante;
@@ -114,6 +116,7 @@ public class CadastroParticipantesInternal extends javax.swing.JDialog {
         rSButtonForma2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         rSButtonForma2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icone_confirmar.png"))); // NOI18N
         rSButtonForma2.setText("Salvar");
+        rSButtonForma2.setColorHover(new java.awt.Color(0, 239, 119));
         rSButtonForma2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rSButtonForma2ActionPerformed(evt);
@@ -251,7 +254,7 @@ public class CadastroParticipantesInternal extends javax.swing.JDialog {
     }//GEN-LAST:event_rSSwitchAtivoMousePressed
 
     private void rSButtonForma3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonForma3ActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_rSButtonForma3ActionPerformed
 
     private void rSButtonForma2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonForma2ActionPerformed
@@ -298,14 +301,24 @@ public class CadastroParticipantesInternal extends javax.swing.JDialog {
                 participante = participante != null ? participante : new ParticipanteEntity();
                 participante.setNome(jTextFieldNome.getText().trim());
                 participante.setAtivo(rSSwitchAtivo.isActivado());
+                participantesBO.salvarParticipante(participante);
+    
+                atualizarConsulta = true;
+                dispose();
                 
-                
+            } else {
+                MessagesUtil.alert(null, true, null, null, "Informe um nome!");
+                jTextFieldNome.grabFocus();
             }
             
-        } catch (Exception e) {
-            e.printStackTrace();
-            MessagesUtil.error(null, true, null, null, null);           
+        } catch (ErrorException e) {
+            MessagesUtil.error(null, true, null, null, e.getMessage());           
         }
+        
+    }
+
+    public boolean isAtualizarConsulta() {
+        return atualizarConsulta;
     }
     
 }
