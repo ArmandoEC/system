@@ -1,14 +1,22 @@
 package com.armandodev.view;
 
-import com.armandodev.entity.ParticipanteEntity;
+import com.armandodev.cellRenderer.TabelaZebra;
+import com.armandodev.filter.ParticipanteFilter;
+import com.armandodev.internal.cadastro.CadastroParticipanteInternal;
+import com.armandodev.internal.filtro.FiltroParticipanteInternal;
+import com.armandodev.internal.messages.LoadingMessageInternal;
 import com.armandodev.negocio.ParticipanteBO;
 import com.armandodev.tableModel.ConsultaParticipanteTableModel;
-import java.util.List;
+import com.armandodev.util.MessagesUtil;
+import com.armandodev.util.TableUtil;
+import java.util.Arrays;
+import javax.swing.ListSelectionModel;
+import javax.swing.SwingWorker;
 
 public class ParticipanteView extends javax.swing.JFrame {
     
     //VARIAVEIS
-    private List<ParticipanteEntity> listParticipante;
+    private ParticipanteFilter filter;
     
     //TABLE MODEL
     private ConsultaParticipanteTableModel tableModelParticipante;
@@ -22,14 +30,20 @@ public class ParticipanteView extends javax.swing.JFrame {
     }
     
     private void init() {
-         this.initTableModel();
+        
+        participanteBO = new ParticipanteBO();
+        this.initTableModel();
+        this.rSButtonBuscarActionPerformed(null);
     }
     
     private void initTableModel() {
         
         tableModelParticipante = new ConsultaParticipanteTableModel();
-        jTableParticipantes.setModel(tableModelParticipante);
+        jTableParticipantes.setModel(tableModelParticipante);        
+        TableUtil.configureTable(jTableParticipantes, Arrays.asList(80,500,60));
         
+        jTableParticipantes.setDefaultRenderer(String.class,new TabelaZebra());
+        jTableParticipantes.setDefaultRenderer(Integer.class,new TabelaZebra());
         
     }
         
@@ -41,12 +55,12 @@ public class ParticipanteView extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        rSButtonForma1 = new rojeru_san.rsbutton.RSButtonForma();
+        rSButtonNovo = new rojeru_san.rsbutton.RSButtonForma();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableParticipantes = new javax.swing.JTable();
-        rSButtonForma7 = new rojeru_san.rsbutton.RSButtonForma();
-        rSButtonForma8 = new rojeru_san.rsbutton.RSButtonForma();
-        rSButtonForma9 = new rojeru_san.rsbutton.RSButtonForma();
+        rSButtonAlterar = new rojeru_san.rsbutton.RSButtonForma();
+        rSButtonFiltro = new rojeru_san.rsbutton.RSButtonForma();
+        rSButtonBuscar = new rojeru_san.rsbutton.RSButtonForma();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Modelo View");
@@ -77,18 +91,18 @@ public class ParticipanteView extends javax.swing.JFrame {
                 .addGap(11, 11, 11))
         );
 
-        rSButtonForma1.setBackground(new java.awt.Color(0, 168, 84));
-        rSButtonForma1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        rSButtonForma1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icone_mais.png"))); // NOI18N
-        rSButtonForma1.setText("Novo");
-        rSButtonForma1.setColorHover(new java.awt.Color(0, 239, 119));
-        rSButtonForma1.addActionListener(new java.awt.event.ActionListener() {
+        rSButtonNovo.setBackground(new java.awt.Color(0, 168, 84));
+        rSButtonNovo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        rSButtonNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icone_mais.png"))); // NOI18N
+        rSButtonNovo.setText("Novo");
+        rSButtonNovo.setColorHover(new java.awt.Color(0, 239, 119));
+        rSButtonNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rSButtonForma1ActionPerformed(evt);
+                rSButtonNovoActionPerformed(evt);
             }
         });
 
-        jTableParticipantes.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        jTableParticipantes.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jTableParticipantes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -101,43 +115,39 @@ public class ParticipanteView extends javax.swing.JFrame {
         jTableParticipantes.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         jTableParticipantes.setGridColor(new java.awt.Color(204, 204, 204));
         jTableParticipantes.setRowHeight(20);
-        jTableParticipantes.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTableParticipantesMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jTableParticipantesMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jTableParticipantesMouseExited(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jTableParticipantesMouseReleased(evt);
-            }
-        });
-        jTableParticipantes.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTableParticipantesKeyPressed(evt);
-            }
-        });
         jScrollPane1.setViewportView(jTableParticipantes);
 
-        rSButtonForma7.setBackground(new java.awt.Color(0, 153, 153));
-        rSButtonForma7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        rSButtonForma7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icone_alterar.png"))); // NOI18N
-        rSButtonForma7.setText("Alterar");
-        rSButtonForma7.setColorHover(new java.awt.Color(0, 219, 219));
+        rSButtonAlterar.setBackground(new java.awt.Color(0, 153, 153));
+        rSButtonAlterar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        rSButtonAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icone_alterar.png"))); // NOI18N
+        rSButtonAlterar.setText("Alterar");
+        rSButtonAlterar.setColorHover(new java.awt.Color(0, 219, 219));
+        rSButtonAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonAlterarActionPerformed(evt);
+            }
+        });
 
-        rSButtonForma8.setBackground(new java.awt.Color(204, 204, 0));
-        rSButtonForma8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        rSButtonForma8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icone_filtro.png"))); // NOI18N
-        rSButtonForma8.setColorHover(new java.awt.Color(239, 239, 0));
+        rSButtonFiltro.setBackground(new java.awt.Color(204, 204, 0));
+        rSButtonFiltro.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        rSButtonFiltro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icone_filtro.png"))); // NOI18N
+        rSButtonFiltro.setColorHover(new java.awt.Color(239, 239, 0));
+        rSButtonFiltro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonFiltroActionPerformed(evt);
+            }
+        });
 
-        rSButtonForma9.setBackground(new java.awt.Color(4, 123, 174));
-        rSButtonForma9.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        rSButtonForma9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icone_buscar.png"))); // NOI18N
-        rSButtonForma9.setText("Buscar");
-        rSButtonForma9.setColorHover(new java.awt.Color(45, 188, 250));
+        rSButtonBuscar.setBackground(new java.awt.Color(4, 123, 174));
+        rSButtonBuscar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        rSButtonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icone_buscar.png"))); // NOI18N
+        rSButtonBuscar.setText("Buscar");
+        rSButtonBuscar.setColorHover(new java.awt.Color(45, 188, 250));
+        rSButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonBuscarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -147,18 +157,16 @@ public class ParticipanteView extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addGap(10, 10, 10))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(rSButtonForma1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(rSButtonNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
-                        .addComponent(rSButtonForma7, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(rSButtonAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(rSButtonForma8, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(rSButtonFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
-                        .addComponent(rSButtonForma9, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10))))
+                        .addComponent(rSButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(10, 10, 10))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,10 +175,10 @@ public class ParticipanteView extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(rSButtonForma1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(rSButtonForma7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(rSButtonForma8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rSButtonForma9, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(rSButtonNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(rSButtonAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(rSButtonFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rSButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(6, 6, 6)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 422, Short.MAX_VALUE)
                 .addGap(11, 11, 11))
@@ -191,152 +199,68 @@ public class ParticipanteView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void rSButtonForma1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonForma1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rSButtonForma1ActionPerformed
+    private void rSButtonNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonNovoActionPerformed
+        
+        CadastroParticipanteInternal internal = new CadastroParticipanteInternal(this, true);
+        internal.setVisible(true);
+        
+        if (internal.isAtualizarConsulta()) {
+            rSButtonBuscarActionPerformed(null);
+        }
+        
+        internal = null;
+        
+    }//GEN-LAST:event_rSButtonNovoActionPerformed
 
-    private void jTableParticipantesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableParticipantesMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTableParticipantesMouseClicked
+    private void rSButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonBuscarActionPerformed
+        
+        LoadingMessageInternal internal = new LoadingMessageInternal(null, true);
+        SwingWorker<Void, Void> sw = new SwingWorker<Void, Void>() {
 
-    private void jTableParticipantesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableParticipantesMouseEntered
-
-        ToolTipManager ttm = ToolTipManager.sharedInstance();
-        ttm.setDismissDelay(2000);
-        ttm.setInitialDelay(180000);
-
-    }//GEN-LAST:event_jTableParticipantesMouseEntered
-
-    private void jTableParticipantesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableParticipantesMouseExited
-        ToolTipManager ttm = ToolTipManager.sharedInstance();
-        ttm.setInitialDelay(0);
-        ttm.setDismissDelay(4000);
-    }//GEN-LAST:event_jTableParticipantesMouseExited
-
-    private void jTableParticipantesMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableParticipantesMouseReleased
-
-        int qtLinhaSelecionada = jTableParticipantes.getSelectedRows().length;
-        jTextFieldQtTituloSelecionadoBaixa.setText(String.valueOf(qtLinhaSelecionada));
-
-        BigDecimal vlTitulosSelecionados = BigDecimal.ZERO;
-        BigDecimal vlTotalJuro = BigDecimal.ZERO;
-        BigDecimal vlTotalOrig = BigDecimal.ZERO;
-        BigDecimal vlTotalDesc = BigDecimal.ZERO;
-
-        for (int i = 0; i < jTableParticipantes.getSelectedRows().length; i++) {
-
-            ConsultaContasAReceberModel model = new ConsultaContasAReceberModel();
-            model = tableModelBaixa.getRow(jTableParticipantes.convertRowIndexToModel(jTableParticipantes.getSelectedRows()[i]));
-
-            vlTitulosSelecionados = vlTitulosSelecionados.add(model.getValor());
-            vlTotalOrig = vlTotalOrig.add(model.getVlOriginal());
-            vlTotalDesc = vlTotalDesc.add(model.getVlDesconto());
-
-            //CALCULO DO VALOR DO JURO
-            if (model.getVlJuro().doubleValue() == 0 && model.getPerJuroEmpresa() != null && model.getPerJuroEmpresa().doubleValue() != 0) {
-                vlTotalJuro = vlTotalJuro.add(calcularVlJuro(model, model.getPerJuroEmpresa()));
-            } else {
-                vlTotalJuro = vlTotalJuro.add(model.getVlJuro());
+            @Override
+            protected Void doInBackground() throws Exception {
+                BuscarParticipantes();
+                return null;
             }
 
-            model = null;
+            @Override
+            protected void done() {
+                internal.dispose();
+            }
+        };
 
-        }
+        sw.execute();
+        internal.setVisible(true);
+        
+    }//GEN-LAST:event_rSButtonBuscarActionPerformed
 
-        //TAREFA #G4747:
-        jTextFieldQtTituloSelecionadoBaixa.setText(String.valueOf(jTableParticipantes.getSelectedRows().length));
-        //jTextFieldVlTituloSelecionadoBaixa.setText(MaskUtil.getMaskMoney(vlTitulosSelecionados));
-        jTextFieldVlTituloSelecionadoBaixa.setText(MaskUtil.getMaskMoney(vlTotalOrig));
-        jTextFieldVlJuroSelecionadoBaixa.setText(MaskUtil.getMaskMoney(vlTotalJuro));
-        //jTextFieldVlTotReceberSelecionadoBaixa.setText(MaskUtil.getMaskMoney(vlTitulosSelecionados.add(vlTotalJuro).subtract(vlTotalDesc)));
-        jTextFieldVlTotReceberSelecionadoBaixa.setText(MaskUtil.getMaskMoney(vlTotalOrig.add(vlTotalJuro).subtract(vlTotalDesc)));
+    private void rSButtonFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonFiltroActionPerformed
+        
+        FiltroParticipanteInternal internal = new FiltroParticipanteInternal(this, true);
+        internal.setVisible(true);
+        filter = internal.getFilter();
+        
+        internal = null;
+        
+    }//GEN-LAST:event_rSButtonFiltroActionPerformed
 
-    }//GEN-LAST:event_jTableParticipantesMouseReleased
+    private void rSButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonAlterarActionPerformed
+        
+        if (jTableParticipantes.getSelectedRowCount() == 1) {
+            
+            CadastroParticipanteInternal internal = new CadastroParticipanteInternal(this, true, 
+                    tableModelParticipante.getRow(jTableParticipantes.getSelectedRow()));
+            internal.setVisible(true);
 
-    private void jTableParticipantesKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTableParticipantesKeyPressed
-
-        try {
-
-            if (evt.getKeyCode() == com.sun.glass.events.KeyEvent.VK_L) {
-
-                int linhaSelecionada = jTableParticipantes.getSelectedRow();
-                if (linhaSelecionada != -1) {
-
-                    boolean isRotina = false;
-                    for (RotinaEntity r : session.getPessoa().getNivelAcesso().getRotinas()) {
-                        if (r != null) {
-                            if (r.getCodRotina().equals("0609")) {
-                                isRotina = true;
-                            }
-                        }
-                    }
-
-                    if(!isRotina) {
-                        MessagesUtil.addMensagemDialogWarningD1(null, true, null, null, "Rotina 609 não permitida para este usuário!");
-                        return;
-                    }
-
-                    ConsultaContasAReceberModel model
-                    = tableModelBaixa.getRow(jTableParticipantes.convertRowIndexToModel(jTableParticipantes.getSelectedRow()));
-
-                    if(model.getDtDesdobramento() == null) {
-                        MessagesUtil.addMensagemDialogWarningD1(this, true, null, null, "Título selecionado não é derivado de um desdobramento!");
-                        return;
-                    }
-
-                    LogDesdCReceberView view = new LogDesdCReceberView(model);
-                    view.setVisible(true);
-
-                }
-
-            } else if (evt.getKeyCode() == com.sun.glass.events.KeyEvent.VK_P) {
-
-                int linhaSelecionada = jTableParticipantes.getSelectedRow();
-                if (linhaSelecionada != -1) {
-
-                    ConsultaContasAReceberModel model
-                    = tableModelBaixa.getRow(jTableParticipantes.convertRowIndexToModel(jTableParticipantes.getSelectedRow()));
-
-                    if(model.getDtDesdobramento() != null) {
-                        MessagesUtil.addMensagemDialogWarningD1(this, true, null, null, "Título selecionado é derivado de um desdobramento, "
-                            + "assim não podendo visualizar seus pedidos!");
-                        return;
-                    }
-
-                    PedidoVendaPorContasAReceberInternal internalPedido = new PedidoVendaPorContasAReceberInternal(this, true, model);
-                    internalPedido.setVisible(true);
-
-                }
-
-            } else if (evt.getKeyCode() == com.sun.glass.events.KeyEvent.VK_C) {
-
-                int linhaSelecionada = jTableParticipantes.getSelectedRow();
-                if (linhaSelecionada != -1) {
-
-                    ConsultaContasAReceberModel model
-                    = tableModelBaixa.getRow(jTableParticipantes.convertRowIndexToModel(jTableParticipantes.getSelectedRow()));
-
-                    if(model.getDtDesdobramento() != null) {
-                        MessagesUtil.addMensagemDialogWarningD1(this, true, null, null, "Título selecionado é derivado de um desdobramento, "
-                            + "assim não podendo visualizar seus pedidos!");
-                        return;
-                    }
-
-                    POSCReceberInternal internalPedido = new POSCReceberInternal(this, true, model);
-                    internalPedido.setVisible(true);
-
-                }
-
-            } else if (evt.getKeyCode() == com.sun.glass.events.KeyEvent.VK_F) {
-                menuCanhotoEletronico();
+            if (internal.isAtualizarConsulta()) {
+                rSButtonBuscarActionPerformed(null);
             }
 
-        } catch (Exception e) {
-            MessagesUtil.addMensagemDialogErroD2(this, true, e.getMessage());
-            e.printStackTrace();
+            internal = null;
+            
         }
-
-    }//GEN-LAST:event_jTableParticipantesKeyPressed
+        
+    }//GEN-LAST:event_rSButtonAlterarActionPerformed
                
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -352,10 +276,26 @@ public class ParticipanteView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableParticipantes;
-    private rojeru_san.rsbutton.RSButtonForma rSButtonForma1;
-    private rojeru_san.rsbutton.RSButtonForma rSButtonForma7;
-    private rojeru_san.rsbutton.RSButtonForma rSButtonForma8;
-    private rojeru_san.rsbutton.RSButtonForma rSButtonForma9;
+    private rojeru_san.rsbutton.RSButtonForma rSButtonAlterar;
+    private rojeru_san.rsbutton.RSButtonForma rSButtonBuscar;
+    private rojeru_san.rsbutton.RSButtonForma rSButtonFiltro;
+    private rojeru_san.rsbutton.RSButtonForma rSButtonNovo;
     // End of variables declaration//GEN-END:variables
     
+    private void BuscarParticipantes() {
+        
+        try {
+            
+            if (filter == null) filter = new ParticipanteFilter();
+            tableModelParticipante.setRows(participanteBO.buscarParticipantes(filter));            
+            jTableParticipantes.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+            
+            filter = null;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            MessagesUtil.error(null, true, null, null, null);
+        }
+        
+    }
 }

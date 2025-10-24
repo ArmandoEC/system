@@ -9,7 +9,7 @@ public class ConsultaParticipanteTableModel extends AbstractTableModel {
     private List<ParticipanteEntity> rows;
 
     private String[] columns = {
-        "Código", "Nume", "Ativo"
+        "Código", "Nome", "Ativo"
     };
     
     public ConsultaParticipanteTableModel() {}

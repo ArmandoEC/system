@@ -2,8 +2,9 @@ package com.armandodev.enumerator;
 
 public enum RegexDocument {
     
-    LETRAS_NUMEROS_ESPACOS("[^a-zA-Z0-9 ]");
-
+    LETRAS_NUMEROS_ESPACOS("[^a-zA-Z0-9 ]"),
+    NUMEROS("[0-9]");
+    
     private final String padrao;
 
     RegexDocument(String padrao) {

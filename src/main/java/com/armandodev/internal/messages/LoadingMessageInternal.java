@@ -25,8 +25,6 @@ public class LoadingMessageInternal extends javax.swing.JDialog {
         jLabel1.setText("Aguarde... Processando...");
         jLabel1.setPreferredSize(new java.awt.Dimension(280, 17));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/snsolucoes/images/gifs/Progresso.gif"))); // NOI18N
-
         rSLabelImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/messages/Git_loading.gif"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -34,11 +32,9 @@ public class LoadingMessageInternal extends javax.swing.JDialog {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, 0)
                 .addComponent(rSLabelImage1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(60, 60, 60)
                 .addComponent(jLabel2)

@@ -1,26 +1,25 @@
 package com.armandodev.negocio;
 
 import com.armandodev.entity.ParticipanteEntity;
-import com.armandodev.exception.ErrorException;
+import com.armandodev.filter.ParticipanteFilter;
 import com.armandodev.service.ParticipanteService;
+import java.util.List;
 
 
 public class ParticipanteBO {
     
-    public void salvarParticipante(ParticipanteEntity participante) throws ErrorException {
-        
-        try {
-            
-            if (participante.getCodigo() == null) {
-                new ParticipanteService().salvarNovoParticipante(participante);
-            } else {
-                new ParticipanteService().alterarParticipante(participante);
-            }
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new ErrorException("Erro ao salvar Participante!");
+    public void salvarParticipante(ParticipanteEntity participante) throws Exception {
+
+        if (participante.getCodigo() == null) {
+            new ParticipanteService().salvarNovoParticipante(participante);
+        } else {
+            new ParticipanteService().alterarParticipante(participante);
         }
-        
+
     }
+    
+    public List<ParticipanteEntity> buscarParticipantes(ParticipanteFilter filter) throws Exception {
+        return new ParticipanteService().buscarParticipantes(filter);
+    }
+    
 }

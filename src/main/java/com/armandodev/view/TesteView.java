@@ -14,17 +14,19 @@ public class TesteView extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        rSButtonForma1 = new rojeru_san.rsbutton.RSButtonForma();
-        rSButtonForma2 = new rojeru_san.rsbutton.RSButtonForma();
+        rSButtonNovo = new rojeru_san.rsbutton.RSButtonForma();
+        rSButtonSalvar = new rojeru_san.rsbutton.RSButtonForma();
         textField1 = new necesario.TextField();
         jTextFieldNumNota = new javax.swing.JTextField();
-        rSButtonForma3 = new rojeru_san.rsbutton.RSButtonForma();
-        rSButtonForma4 = new rojeru_san.rsbutton.RSButtonForma();
-        rSButtonForma5 = new rojeru_san.rsbutton.RSButtonForma();
-        rSButtonForma6 = new rojeru_san.rsbutton.RSButtonForma();
-        rSButtonForma7 = new rojeru_san.rsbutton.RSButtonForma();
-        rSButtonForma8 = new rojeru_san.rsbutton.RSButtonForma();
-        rSButtonForma9 = new rojeru_san.rsbutton.RSButtonForma();
+        rSButtonVoltar = new rojeru_san.rsbutton.RSButtonForma();
+        rSButtonConfirmar = new rojeru_san.rsbutton.RSButtonForma();
+        rSButtonSim = new rojeru_san.rsbutton.RSButtonForma();
+        rSButtonNao = new rojeru_san.rsbutton.RSButtonForma();
+        rSButtonAlterar = new rojeru_san.rsbutton.RSButtonForma();
+        rSButtonFiltro = new rojeru_san.rsbutton.RSButtonForma();
+        rSButtonBuscar = new rojeru_san.rsbutton.RSButtonForma();
+        rSButtonFiltrar = new rojeru_san.rsbutton.RSButtonForma();
+        rSComboBoxPorta = new rojerusan.RSComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Modelo View");
@@ -56,17 +58,17 @@ public class TesteView extends javax.swing.JFrame {
                 .addGap(11, 11, 11))
         );
 
-        rSButtonForma1.setBackground(new java.awt.Color(0, 168, 84));
-        rSButtonForma1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        rSButtonForma1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icone_mais.png"))); // NOI18N
-        rSButtonForma1.setText("Novo");
-        rSButtonForma1.setColorHover(new java.awt.Color(0, 239, 119));
+        rSButtonNovo.setBackground(new java.awt.Color(0, 168, 84));
+        rSButtonNovo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        rSButtonNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icone_mais.png"))); // NOI18N
+        rSButtonNovo.setText("Novo");
+        rSButtonNovo.setColorHover(new java.awt.Color(0, 239, 119));
 
-        rSButtonForma2.setBackground(new java.awt.Color(0, 168, 84));
-        rSButtonForma2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        rSButtonForma2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icone_confirmar.png"))); // NOI18N
-        rSButtonForma2.setText("Salvar");
-        rSButtonForma2.setColorHover(new java.awt.Color(0, 239, 119));
+        rSButtonSalvar.setBackground(new java.awt.Color(0, 168, 84));
+        rSButtonSalvar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        rSButtonSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icone_confirmar.png"))); // NOI18N
+        rSButtonSalvar.setText("Salvar");
+        rSButtonSalvar.setColorHover(new java.awt.Color(0, 239, 119));
 
         textField1.setForeground(new java.awt.Color(0, 0, 0));
         textField1.setPlaceholder("Nome...");
@@ -81,45 +83,60 @@ public class TesteView extends javax.swing.JFrame {
             }
         });
 
-        rSButtonForma3.setBackground(new java.awt.Color(255, 153, 0));
-        rSButtonForma3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        rSButtonForma3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icone_voltar.png"))); // NOI18N
-        rSButtonForma3.setText("Voltar");
+        rSButtonVoltar.setBackground(new java.awt.Color(255, 153, 0));
+        rSButtonVoltar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        rSButtonVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icone_voltar.png"))); // NOI18N
+        rSButtonVoltar.setText("Voltar");
 
-        rSButtonForma4.setBackground(new java.awt.Color(0, 168, 84));
-        rSButtonForma4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        rSButtonForma4.setText("OK");
-        rSButtonForma4.setColorHover(new java.awt.Color(0, 239, 119));
-        rSButtonForma4.setFont(new java.awt.Font("Roboto Bold", 1, 18)); // NOI18N
+        rSButtonConfirmar.setBackground(new java.awt.Color(0, 168, 84));
+        rSButtonConfirmar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        rSButtonConfirmar.setText("OK");
+        rSButtonConfirmar.setColorHover(new java.awt.Color(0, 239, 119));
+        rSButtonConfirmar.setFont(new java.awt.Font("Roboto Bold", 1, 18)); // NOI18N
 
-        rSButtonForma5.setBackground(new java.awt.Color(0, 168, 84));
-        rSButtonForma5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        rSButtonForma5.setText("SIM");
-        rSButtonForma5.setColorHover(new java.awt.Color(0, 239, 119));
-        rSButtonForma5.setFont(new java.awt.Font("Roboto Bold", 1, 18)); // NOI18N
+        rSButtonSim.setBackground(new java.awt.Color(0, 168, 84));
+        rSButtonSim.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        rSButtonSim.setText("SIM");
+        rSButtonSim.setColorHover(new java.awt.Color(0, 239, 119));
+        rSButtonSim.setFont(new java.awt.Font("Roboto Bold", 1, 18)); // NOI18N
 
-        rSButtonForma6.setBackground(new java.awt.Color(255, 51, 51));
-        rSButtonForma6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        rSButtonForma6.setText("NÃO");
-        rSButtonForma6.setColorHover(new java.awt.Color(255, 117, 117));
-        rSButtonForma6.setFont(new java.awt.Font("Roboto Bold", 1, 18)); // NOI18N
+        rSButtonNao.setBackground(new java.awt.Color(255, 51, 51));
+        rSButtonNao.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        rSButtonNao.setText("NÃO");
+        rSButtonNao.setColorHover(new java.awt.Color(255, 117, 117));
+        rSButtonNao.setFont(new java.awt.Font("Roboto Bold", 1, 18)); // NOI18N
 
-        rSButtonForma7.setBackground(new java.awt.Color(0, 153, 153));
-        rSButtonForma7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        rSButtonForma7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icone_alterar.png"))); // NOI18N
-        rSButtonForma7.setText("Alterar");
-        rSButtonForma7.setColorHover(new java.awt.Color(0, 219, 219));
+        rSButtonAlterar.setBackground(new java.awt.Color(0, 153, 153));
+        rSButtonAlterar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        rSButtonAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icone_alterar.png"))); // NOI18N
+        rSButtonAlterar.setText("Alterar");
+        rSButtonAlterar.setColorHover(new java.awt.Color(0, 219, 219));
 
-        rSButtonForma8.setBackground(new java.awt.Color(204, 204, 0));
-        rSButtonForma8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        rSButtonForma8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icone_filtro.png"))); // NOI18N
-        rSButtonForma8.setColorHover(new java.awt.Color(239, 239, 0));
+        rSButtonFiltro.setBackground(new java.awt.Color(204, 204, 0));
+        rSButtonFiltro.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        rSButtonFiltro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icone_filtro.png"))); // NOI18N
+        rSButtonFiltro.setColorHover(new java.awt.Color(239, 239, 0));
 
-        rSButtonForma9.setBackground(new java.awt.Color(4, 123, 174));
-        rSButtonForma9.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        rSButtonForma9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icone_buscar.png"))); // NOI18N
-        rSButtonForma9.setText("Buscar");
-        rSButtonForma9.setColorHover(new java.awt.Color(45, 188, 250));
+        rSButtonBuscar.setBackground(new java.awt.Color(4, 123, 174));
+        rSButtonBuscar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        rSButtonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icone_buscar.png"))); // NOI18N
+        rSButtonBuscar.setText("Buscar");
+        rSButtonBuscar.setColorHover(new java.awt.Color(45, 188, 250));
+
+        rSButtonFiltrar.setBackground(new java.awt.Color(204, 204, 0));
+        rSButtonFiltrar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        rSButtonFiltrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icone_filtro.png"))); // NOI18N
+        rSButtonFiltrar.setText("Filtrar");
+        rSButtonFiltrar.setColorHover(new java.awt.Color(239, 239, 0));
+
+        rSComboBoxPorta.setForeground(new java.awt.Color(0, 0, 0));
+        rSComboBoxPorta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SELECIONE" }));
+        rSComboBoxPorta.setColorArrow(new java.awt.Color(0, 0, 0));
+        rSComboBoxPorta.setColorBorde(new java.awt.Color(0, 0, 0));
+        rSComboBoxPorta.setColorBoton(new java.awt.Color(255, 255, 255));
+        rSComboBoxPorta.setColorFondo(new java.awt.Color(255, 255, 255));
+        rSComboBoxPorta.setColorListaItems(new java.awt.Color(242, 242, 242));
+        rSComboBoxPorta.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -132,27 +149,32 @@ public class TesteView extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jTextFieldNumNota, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rSButtonForma1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(rSButtonNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(rSButtonForma2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(rSButtonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rSButtonForma3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(rSButtonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(rSButtonForma7, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(rSButtonAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(rSButtonForma8, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(rSButtonForma9, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(textField1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(rSButtonFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(textField1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(rSComboBoxPorta, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(rSButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(rSButtonFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(rSButtonForma4, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(rSButtonConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(48, 48, 48)
-                        .addComponent(rSButtonForma5, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(rSButtonSim, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(rSButtonForma6, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(321, Short.MAX_VALUE))
+                        .addComponent(rSButtonNao, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(195, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,22 +184,26 @@ public class TesteView extends javax.swing.JFrame {
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(rSButtonForma1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rSButtonForma2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rSButtonForma3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rSButtonForma7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rSButtonForma8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(rSButtonForma9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(rSButtonNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(rSButtonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(rSButtonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(rSButtonAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(rSButtonFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(rSButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(rSButtonFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextFieldNumNota, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(textField1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(rSComboBoxPorta, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldNumNota, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textField1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rSButtonForma4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rSButtonForma5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rSButtonForma6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 560, Short.MAX_VALUE))
+                    .addComponent(rSButtonConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rSButtonSim, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rSButtonNao, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 554, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -212,15 +238,17 @@ public class TesteView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextFieldNumNota;
-    private rojeru_san.rsbutton.RSButtonForma rSButtonForma1;
-    private rojeru_san.rsbutton.RSButtonForma rSButtonForma2;
-    private rojeru_san.rsbutton.RSButtonForma rSButtonForma3;
-    private rojeru_san.rsbutton.RSButtonForma rSButtonForma4;
-    private rojeru_san.rsbutton.RSButtonForma rSButtonForma5;
-    private rojeru_san.rsbutton.RSButtonForma rSButtonForma6;
-    private rojeru_san.rsbutton.RSButtonForma rSButtonForma7;
-    private rojeru_san.rsbutton.RSButtonForma rSButtonForma8;
-    private rojeru_san.rsbutton.RSButtonForma rSButtonForma9;
+    private rojeru_san.rsbutton.RSButtonForma rSButtonAlterar;
+    private rojeru_san.rsbutton.RSButtonForma rSButtonBuscar;
+    private rojeru_san.rsbutton.RSButtonForma rSButtonConfirmar;
+    private rojeru_san.rsbutton.RSButtonForma rSButtonFiltrar;
+    private rojeru_san.rsbutton.RSButtonForma rSButtonFiltro;
+    private rojeru_san.rsbutton.RSButtonForma rSButtonNao;
+    private rojeru_san.rsbutton.RSButtonForma rSButtonNovo;
+    private rojeru_san.rsbutton.RSButtonForma rSButtonSalvar;
+    private rojeru_san.rsbutton.RSButtonForma rSButtonSim;
+    private rojeru_san.rsbutton.RSButtonForma rSButtonVoltar;
+    private rojerusan.RSComboBox rSComboBoxPorta;
     private necesario.TextField textField1;
     // End of variables declaration//GEN-END:variables
     
