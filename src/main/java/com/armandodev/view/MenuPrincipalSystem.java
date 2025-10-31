@@ -3,11 +3,9 @@ package com.armandodev.view;
 import com.armandodev.cellRenderer.MenuPrincipalTreeCellRenderer;
 import com.armandodev.negocio.MenuPrincipalBO;
 import com.armandodev.tableModel.MenuPrincipalTreeModel;
+import com.armandodev.util.MessagesUtil;
 import com.armandodev.util.jpa.ConnectionFactory;
-import java.awt.Event;
-import java.awt.event.InputEvent;
 import javax.swing.JOptionPane;
-import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
 
 public class MenuPrincipalSystem extends javax.swing.JFrame {
@@ -37,7 +35,7 @@ public class MenuPrincipalSystem extends javax.swing.JFrame {
             
         } catch (Exception e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(this,e.getMessage());
+            MessagesUtil.error(null, true, null, null, null);
         }
         
     }

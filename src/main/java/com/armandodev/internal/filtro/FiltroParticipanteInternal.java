@@ -132,7 +132,8 @@ public class FiltroParticipanteInternal extends javax.swing.JDialog {
         });
 
         rSComboBoxAtivo.setForeground(new java.awt.Color(0, 0, 0));
-        rSComboBoxAtivo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Todos", "Ativos", "Inativos" }));
+        rSComboBoxAtivo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "Todos", "Ativos", "Inativos" }));
+        rSComboBoxAtivo.setSelectedIndex(1);
         rSComboBoxAtivo.setColorArrow(new java.awt.Color(0, 0, 0));
         rSComboBoxAtivo.setColorBorde(new java.awt.Color(0, 0, 0));
         rSComboBoxAtivo.setColorBoton(new java.awt.Color(255, 255, 255));
