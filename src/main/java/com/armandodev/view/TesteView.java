@@ -27,6 +27,7 @@ public class TesteView extends javax.swing.JFrame {
         rSButtonBuscar = new rojeru_san.rsbutton.RSButtonForma();
         rSButtonFiltrar = new rojeru_san.rsbutton.RSButtonForma();
         rSComboBoxPorta = new rojerusan.RSComboBox();
+        jTextFieldNome1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Modelo View");
@@ -138,6 +139,18 @@ public class TesteView extends javax.swing.JFrame {
         rSComboBoxPorta.setColorListaItems(new java.awt.Color(242, 242, 242));
         rSComboBoxPorta.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
+        jTextFieldNome1.setEditable(false);
+        jTextFieldNome1.setBackground(new java.awt.Color(204, 255, 204));
+        jTextFieldNome1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jTextFieldNome1.setForeground(new java.awt.Color(51, 51, 51));
+        jTextFieldNome1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jTextFieldNome1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 51, 51), 1, true));
+        jTextFieldNome1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextFieldNome1FocusGained(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -173,8 +186,9 @@ public class TesteView extends javax.swing.JFrame {
                         .addGap(48, 48, 48)
                         .addComponent(rSButtonSim, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(rSButtonNao, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(195, Short.MAX_VALUE))
+                        .addComponent(rSButtonNao, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,7 +217,9 @@ public class TesteView extends javax.swing.JFrame {
                     .addComponent(rSButtonConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(rSButtonSim, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(rSButtonNao, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 554, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jTextFieldNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 513, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -224,6 +240,10 @@ public class TesteView extends javax.swing.JFrame {
     private void jTextFieldNumNotaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldNumNotaFocusGained
         jTextFieldNumNota.selectAll();
     }//GEN-LAST:event_jTextFieldNumNotaFocusGained
+
+    private void jTextFieldNome1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldNome1FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNome1FocusGained
                
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -237,6 +257,7 @@ public class TesteView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField jTextFieldNome1;
     private javax.swing.JTextField jTextFieldNumNota;
     private rojeru_san.rsbutton.RSButtonForma rSButtonAlterar;
     private rojeru_san.rsbutton.RSButtonForma rSButtonBuscar;

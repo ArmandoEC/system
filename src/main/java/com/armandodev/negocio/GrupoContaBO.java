@@ -26,6 +26,7 @@ public class GrupoContaBO {
         filter = null;
         service = null;
         return listGrupoConta;
+        
     }
     
     private void buscarSubGrupos(GrupoContaEntity grupoConta, GrupoContaService service) throws Exception {
@@ -46,6 +47,16 @@ public class GrupoContaBO {
         
         filter = null;
        
+    }
+    
+    public void salvarConta(GrupoContaEntity grupoConta) throws Exception {
+        
+        if (grupoConta.getId() == null) {
+            new GrupoContaService().salvarNovaConta(grupoConta);
+        } else {
+            new GrupoContaService().alterarConta(grupoConta);
+        }
+        
     }
     
 }

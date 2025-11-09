@@ -3,9 +3,9 @@ package com.armandodev.view;
 import com.armandodev.cellRenderer.MenuPrincipalTreeCellRenderer;
 import com.armandodev.negocio.MenuPrincipalBO;
 import com.armandodev.tableModel.MenuPrincipalTreeModel;
+import com.armandodev.util.FlywayMigration;
 import com.armandodev.util.MessagesUtil;
 import com.armandodev.util.jpa.ConnectionFactory;
-import javax.swing.JOptionPane;
 import javax.swing.tree.TreeSelectionModel;
 
 public class MenuPrincipalSystem extends javax.swing.JFrame {
@@ -19,6 +19,7 @@ public class MenuPrincipalSystem extends javax.swing.JFrame {
     
     private void init() {
         ConnectionFactory.getConnection();
+        FlywayMigration.migrate();
         this.initVariaveis();
     }
     
@@ -49,7 +50,7 @@ public class MenuPrincipalSystem extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTreeMenu = new javax.swing.JTree();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Modelo View");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -138,8 +139,12 @@ public class MenuPrincipalSystem extends javax.swing.JFrame {
         
         switch(node) {
             case "10 - Participantes":
-                ParticipanteView view = new ParticipanteView();
-                view.setVisible(true);
+                ParticipanteView view10 = new ParticipanteView();
+                view10.setVisible(true);
+            break;
+            case "11 - Grupo Contas":
+                GrupoContaView view11 = new GrupoContaView();
+                view11.setVisible(true);
             break;
         }
     }

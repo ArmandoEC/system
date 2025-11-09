@@ -4,6 +4,8 @@ import com.armandodev.entity.GrupoContaEntity;
 import com.armandodev.filter.GrupoContaFilter;
 import com.armandodev.util.jpa.ConnectionFactory;
 import java.math.BigInteger;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -59,6 +61,41 @@ public class GrupoContaService {
         query = null;
         manager = null;
         return listResult;
+        
+    }
+    
+    public void salvarNovaConta(GrupoContaEntity conta) {
+        
+        EntityManager manager = ConnectionFactory.getConnection();        
+        ConnectionFactory.begin();
+        manager.persist(conta);
+        ConnectionFactory.commit();    
+        
+        manager = null;
+        
+    }
+    
+    public void alterarConta(GrupoContaEntity conta) throws Exception {
+        
+        Connection con = null;
+        PreparedStatement pstmt = null;
+
+        try {
+        
+            StringBuffer sql = new StringBuffer();
+            sql.append("UPDATE GRUPOCONTA SET NOME = ? WHERE CODIGO = ? ");
+
+            con = ConnectionFactory.getConnectionJDBC2();
+            pstmt = con.prepareStatement(sql.toString());
+            pstmt.setString(1, conta.getNome());
+            pstmt.setLong(2, conta.getId());
+            pstmt.executeUpdate();
+            
+            sql = null;
+
+        } finally {
+            ConnectionFactory.fechaObjetosBanco(con, null, pstmt);
+        }
         
     }
     

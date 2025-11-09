@@ -79,11 +79,6 @@ public class GrupoContaView extends javax.swing.JFrame {
 
         jTreeContas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jTreeContas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jTreeContas.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTreeContasMouseClicked(evt);
-            }
-        });
         jScrollPane1.setViewportView(jTreeContas);
 
         rSButtonNovo.setBackground(new java.awt.Color(0, 168, 84));
@@ -91,6 +86,11 @@ public class GrupoContaView extends javax.swing.JFrame {
         rSButtonNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icone_mais.png"))); // NOI18N
         rSButtonNovo.setText("Novo");
         rSButtonNovo.setColorHover(new java.awt.Color(0, 239, 119));
+        rSButtonNovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonNovoActionPerformed(evt);
+            }
+        });
 
         rSButtonAlterar.setBackground(new java.awt.Color(0, 153, 153));
         rSButtonAlterar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
@@ -141,13 +141,9 @@ public class GrupoContaView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTreeContasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTreeContasMouseClicked
-
-        if (evt.getClickCount() == 2 && jTreeContas.getPathForLocation(evt.getX(), evt.getY()) != null) {
-            abrirRotina(jTreeContas.getLastSelectedPathComponent().toString());
-        }
-
-    }//GEN-LAST:event_jTreeContasMouseClicked
+    private void rSButtonNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonNovoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rSButtonNovoActionPerformed
                
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {

@@ -138,9 +138,6 @@
                   <Color id="Cursor em Forma de M&#xe3;o"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTreeContasMouseClicked"/>
-              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -162,6 +159,9 @@
               <Color blue="77" green="ef" red="0" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rSButtonNovoActionPerformed"/>
+          </Events>
         </Component>
         <Component class="rojeru_san.rsbutton.RSButtonForma" name="rSButtonAlterar">
           <Properties>
